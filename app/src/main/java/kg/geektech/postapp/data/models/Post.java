@@ -2,7 +2,9 @@ package kg.geektech.postapp.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Post {
+import java.io.Serializable;
+
+public class Post implements Serializable {
     int id;
     String title;
     String content;
@@ -15,6 +17,26 @@ public class Post {
         this.title = title;
         this.content = content;
         this.userId = userId;
+        this.groupId = groupId;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
 

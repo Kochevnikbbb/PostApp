@@ -6,6 +6,7 @@
     android:layout_margin="10dp"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/tv_user_id"
         android:layout_width="match_parent"
@@ -31,5 +32,9 @@
         android:layout_marginTop="6dp"
         android:textSize="18sp"
         tools:text="Content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
 
 </LinearLayout>

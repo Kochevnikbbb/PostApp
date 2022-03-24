@@ -18,11 +18,12 @@ import kg.geektech.postapp.App;
 import kg.geektech.postapp.data.models.Post;
 import kg.geektech.postapp.R;
 import kg.geektech.postapp.databinding.FragmentPostsBinding;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PostsFragment extends Fragment {
+public class PostsFragment extends Fragment implements OnClick{
 
     private FragmentPostsBinding binding;
     private PostAdapter adapter;
@@ -32,7 +33,7 @@ public class PostsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new PostAdapter();
+        adapter = new PostAdapter(this);
         navHostFragment= (NavHostFragment) requireActivity().getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
         controller = navHostFragment.getNavController();
@@ -64,6 +65,30 @@ public class PostsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onClick(Post post) {
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("key", post);
+        controller.navigate(R.id.action_postsFragment_to_formFragment, bundle);
+    }
+
+    @Override
+    public void onLongClick(Post post) {
+
+        App.api.deletePost(post.getId()).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                adapter.remove(post);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
 
             }
         });
