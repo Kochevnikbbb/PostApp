@@ -15,7 +15,7 @@ import kg.geektech.postapp.databinding.ItemPostBinding;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
     private List<Post> posts = new ArrayList<>();
-    private HashMap<Integer,String> hashMap = new HashMap<>();
+    public static HashMap<Integer,String> hashMap = new HashMap<>();
     private OnClick onClick;
 
     public PostAdapter(OnClick onClick) {
@@ -32,7 +32,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemPostBinding binding = ItemPostBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false);
-        hashMap.put(0, "");
+        hashMap.put(0, "хз");
         hashMap.put(1, "Султан Джумалиев");
         hashMap.put(2, "Бекжан Маданбеков");
         hashMap.put(3, "Бакай Белеков");

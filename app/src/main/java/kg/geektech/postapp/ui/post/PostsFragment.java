@@ -54,6 +54,9 @@ public class PostsFragment extends Fragment implements OnClick{
         binding.fab.setOnClickListener(view1 -> {
             controller.navigate(R.id.formFragment);
         });
+        binding.fab2.setOnClickListener(view1 -> {
+            controller.navigate(R.id.action_postsFragment_to_peopleFragment);
+        });
 
         App.api.getPosts().enqueue(new Callback<List<Post>>() {
             @Override

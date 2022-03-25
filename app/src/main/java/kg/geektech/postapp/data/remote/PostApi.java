@@ -28,4 +28,9 @@ public interface PostApi {
     Call<ResponseBody> putPost(
             @Path("id") int id,
             @Body Post post);
+
+    @GET("/posts/{id}")
+    Call<Post> getPostById(
+            @Path("id") String id
+    );
 }

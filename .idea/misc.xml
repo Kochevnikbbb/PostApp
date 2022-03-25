@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/fragment_change_person.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/fragment_form.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/fragment_people.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/fragment_posts.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/item_people.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/bbbaa/AndroidStudioProjects/PostApp/app/src/main/res/layout/item_post.xml" value="0.22826086956521738" />
       </map>
     </option>

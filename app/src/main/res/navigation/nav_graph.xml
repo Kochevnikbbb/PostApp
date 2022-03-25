@@ -13,10 +13,23 @@
         <action
             android:id="@+id/action_postsFragment_to_formFragment"
             app:destination="@id/formFragment" />
+        <action
+            android:id="@+id/action_postsFragment_to_peopleFragment"
+            app:destination="@id/peopleFragment" />
     </fragment>
     <fragment
         android:id="@+id/formFragment"
         android:name="kg.geektech.postapp.ui.form.FormFragment"
         android:label="fragment_form"
         tools:layout="@layout/fragment_form" />
+    <fragment
+        android:id="@+id/peopleFragment"
+        android:name="kg.geektech.postapp.ui.people.PeopleFragment"
+        android:label="fragment_people"
+        tools:layout="@layout/fragment_people" >
+        <action
+            android:id="@+id/action_peopleFragment_to_postsFragment"
+            app:destination="@id/postsFragment" />
+    </fragment>
+
 </navigation>

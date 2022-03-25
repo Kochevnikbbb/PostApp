@@ -22,9 +22,12 @@ import retrofit2.Response;
 public class FormFragment extends Fragment {
     private FragmentFormBinding binding;
     private static final int GROUP_ID = 40;
-    private static final int USER_ID = 3;
+    public static int userIdPeople;
     private Post post;
 
+    public void setUserIdPeople(int userIdPeople) {
+        this.userIdPeople = userIdPeople;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,7 +69,7 @@ public class FormFragment extends Fragment {
                 });
 
             } else {
-                Post post = new Post(title, content, USER_ID, GROUP_ID);
+                Post post = new Post(title, content, userIdPeople, GROUP_ID);
                 App.api.createPost(post).enqueue(new Callback<Post>() {
                     @Override
                     public void onResponse(Call<Post> call, Response<Post> response) {

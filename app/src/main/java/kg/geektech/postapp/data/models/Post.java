@@ -20,6 +20,7 @@ public class Post implements Serializable {
         this.groupId = groupId;
     }
 
+
     public void setId(int id) {
         this.id = id;
     }
