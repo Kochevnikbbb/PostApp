@@ -89,7 +89,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                 onClick.onClick(post);
             });
             itemView.setOnLongClickListener(view -> {
-                onClick.onLongClick(post);
+                onClick.onLongClick(post).show();
                 return true;
             });
         }

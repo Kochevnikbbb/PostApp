@@ -1,5 +1,6 @@
 package kg.geektech.postapp.ui.post;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -82,18 +83,27 @@ public class PostsFragment extends Fragment implements OnClick{
     }
 
     @Override
-    public void onLongClick(Post post) {
+    public AlertDialog onLongClick(Post post) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("вы действительно хотите удалить?");
+        builder.setPositiveButton("Да", (dialogInterface, i) -> {
+            App.api.deletePost(post.getId()).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    adapter.remove(post);
+                }
 
-        App.api.deletePost(post.getId()).enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                adapter.remove(post);
-            }
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-            }
+                }
+            });
         });
+        builder.setNegativeButton("Нет", (dialogInterface, i) -> {
+            controller.navigate(R.id.postsFragment);
+        });
+        builder.setCancelable(true);
+        return builder.create();
+
     }
 }
